@@ -22,21 +22,33 @@ function checker(input) {
     let num = Math.floor(Math.random() * 3);
 
     document.getElementById("computer_choice").
-    innerHTML = `Computer choose <span>${choices[num].toUpperCase()}</span>`;
+    innerHTML = `Computer chose <span>${choices[num].toUpperCase()}</span>`;
 
     document.getElementById("user_choice").
-    innerHTML = `You choose <span>${input.toUpperCase()}</span>`;
+    innerHTML = `You chose <span>${input.toUpperCase()}</span>`;
 
     let computerChoice = choices[num];
 
     switch(choicesObject[input][computerChoice]) {
         case 'win':
-            resultRef.innerHTML = "YOU WIN";
+            resultRef.style.cssText = `
+            background-color: #cefdce;
+            color: #689f38;
+            `;
+            resultRef.innerHTML = "YOU WON";
             break;
         case 'lose':
-            resultRef.innerHTML = "YOU LOSE";
+            resultRef.style.cssText = `
+            background-color: #ffdde0;
+            color: #d32f2f;
+            `;
+            resultRef.innerHTML = "YOU LOST";
             break;
         case 'draw':
+            resultRef.style.cssText = `
+            background-color: #e5e5e5;
+            color: #808080;
+            `;
             resultRef.innerHTML = "DRAW";
             break;
     }
