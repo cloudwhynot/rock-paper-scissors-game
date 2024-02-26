@@ -1,4 +1,7 @@
+let [computerScore, userScore] = [0, 0];
+
 let resultRef = document.getElementById("result");
+
 let choicesObject = {
     'rock' : {
         'rock' : 'draw',
@@ -36,6 +39,7 @@ function checker(input) {
             color: #689f38;
             `;
             resultRef.innerHTML = "YOU WON";
+            userScore++;
             break;
         case 'lose':
             resultRef.style.cssText = `
@@ -43,6 +47,7 @@ function checker(input) {
             color: #d32f2f;
             `;
             resultRef.innerHTML = "YOU LOST";
+            computerScore++;
             break;
         case 'draw':
             resultRef.style.cssText = `
@@ -52,4 +57,7 @@ function checker(input) {
             resultRef.innerHTML = "DRAW";
             break;
     }
+
+    document.getElementById('computer_score').innerHTML = computerScore;
+    document.getElementById('user_score').innerHTML = userScore;
 }
